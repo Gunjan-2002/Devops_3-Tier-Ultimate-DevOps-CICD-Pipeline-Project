@@ -150,6 +150,14 @@ app.get('/', (req, res) => {
     res.render('home')
 });
 
+// Example route handler
+app.get('/', (req, res) => {
+    // Assuming you have some logic to determine if the user is authenticated
+    const currentUser = req.user; // Assuming `req.user` contains authenticated user details
+
+    res.render('index', { currentUser });
+});
+
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))
